@@ -21,15 +21,4 @@ public class UrlShortenerResource {
         UrlShortenerResponse response = new UrlShortenerResponse(shortUrl);
         return Response.ok(response).build();
     }
-
-    @GET
-    @Path("/{shortUrl}")
-    public Response redirectToLongUrl(@PathParam("shortUrl") String shortUrl) {
-        String longUrl = urlShortenerService.getLongUrl(shortUrl);
-        if (longUrl == null) {
-            return Response.status(Response.Status.NOT_FOUND).build();
-        }
-        URI uri = URI.create(longUrl);
-        return Response.temporaryRedirect(uri).build();
-    }
 }
