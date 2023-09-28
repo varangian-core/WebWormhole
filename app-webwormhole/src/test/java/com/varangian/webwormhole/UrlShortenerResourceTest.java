@@ -21,11 +21,11 @@ public class UrlShortenerResourceTest {
         String shortUrl = urlShortenerService.createShortUrl(longUrl);
 
         given()
-                .contentType(ContentType.TEXT)
-                .body(longUrl)
-                .when().post("/url")
+                .contentType(ContentType.JSON)
+                .body("{\"longUrl\": \"" + longUrl + "\"}")
+                .when().post("/shorten")
                 .then()
-                .statusCode(201)
-                .body(equalTo(shortUrl));
+                .statusCode(200)
+                .body("shortUrl", equalTo(shortUrl));
     }
 }
