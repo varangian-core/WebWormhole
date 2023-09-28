@@ -13,13 +13,16 @@ public class UrlShortenerResourceTest {
     UrlShortenerService urlShortenerService;
 
     @Test
-    public void testCreateShortUrl() {
-        given()
-                .when()
-                .body("{\"longUrl\":\"http://www.example.com\"}")
-                .post("/shorten")
-                .then()
-                .statusCode(200)
-                .body("shortUrl", notNullValue());
-    }
+public void testCreateShortUrl() {
+    given()
+            .contentType("application/json")
+            .body("{\"longUrl\":\"http://www.example.com\"}")
+            .when()
+            .log().all() // log request details
+            .post("/shorten")
+            .then()
+            .log().all() // log response details
+            .statusCode(200)
+            .body("shortUrl", notNullValue());
+}
 }
