@@ -1,0 +1,39 @@
+mvn io.quarkus:quarkus-maven-plugin:3.2.6.Final:create \
+    -DprojectGroupId=com.varangian.webwormhole \
+    -DprojectArtifactId=app-webwormhole \
+    -Dextensions="resteasy-jsonb, hibernate-orm, hibernate-validator"
+
+
+    app-webwormhole/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── mycompany/
+│   │   │   │   │   ├── webapp/
+│   │   │   │   │   │   ├── UrlShortenerResource.java
+│   │   │   │   │   │   ├── PastebinResource.java
+│   │   │   │   │   │   ├── SshConnectionTrackerResource.java
+│   │   │   │   │   │   ├── model/
+│   │   │   │   │   │   │   ├── ShortUrl.java
+│   │   │   │   │   │   │   ├── PastebinSnippet.java
+│   │   │   │   │   │   │   ├── SshConnection.java
+│   │   │   │   │   │   ├── repository/
+│   │   │   │   │   │   │   ├── ShortUrlRepository.java
+│   │   │   │   │   │   │   ├── PastebinSnippetRepository.java
+│   │   │   │   │   │   │   ├── SshConnectionRepository.java
+│   │   │   │   │   │   ├── service/
+│   │   │   │   │   │   │   ├── UrlShortenerService.java
+│   │   │   │   │   │   │   ├── PastebinService.java
+│   │   │   │   │   │   │   ├── SshConnectionTrackerService.java
+│   │   ├── resources/
+│   │   │   ├── application.properties
+│   ├── test/
+│   │   ├── java/
+│   │   │   ├── com/
+│   │   │   │   ├── mycompany/
+│   │   │   │   │   ├── webapp/
+│   │   │   │   │   │   ├── UrlShortenerResourceTest.java
+│   │   │   │   │   │   ├── PastebinResourceTest.java
+│   │   │   │   │   │   ├── SshConnectionTrackerResourceTest.java
+├── pom.xml
