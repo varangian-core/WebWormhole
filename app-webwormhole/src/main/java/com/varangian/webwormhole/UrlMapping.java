@@ -1,15 +1,35 @@
 package com.varangian.webwormhole;
 
-public class UrlMapping {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Column;
+import javax.persistence.Table;
+import io.quarkus.hibernate.orm.panache.PanacheEntityBase;
 
+@Entity
+@Table(name = "url_mapping")
+public class UrlMapping extends PanacheEntityBase {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(unique = true)
     private String shortUrl;
+
+    @Column(length = 2048)
     private String longUrl;
 
-    public UrlMapping() {
+    // Getters and Setters
+
+    public Long getId() {
+        return id;
     }
 
-    public UrlMapping(String longUrl) {
-        this.longUrl = longUrl;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getShortUrl() {
